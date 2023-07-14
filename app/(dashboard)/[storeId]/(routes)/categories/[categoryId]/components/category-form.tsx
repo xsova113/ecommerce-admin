@@ -77,7 +77,7 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
       router.push(`/${params.storeId}/categories`);
       toast({
         title: toastMessage,
-        position: "top",
+        position: "bottom-right",
         status: "success",
       });
     } catch (error) {
@@ -105,7 +105,7 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
         title:
           "Make sure you removed all products that's using this category first.",
         status: "error",
-        position: "top",
+        position: "bottom",
       });
     } finally {
       setLoading(false);
