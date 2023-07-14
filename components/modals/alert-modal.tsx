@@ -37,7 +37,7 @@ const AlertModal = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay backdropFilter={"auto"} backdropBlur={"base"} />
-      <ModalContent alignSelf={"center"} maxWidth={500}>
+      <ModalContent alignSelf={"center"} maxWidth={500} className="dark:bg-black" >
         <ModalHeader>Are you sure?</ModalHeader>
         <ModalCloseButton />
         <ModalBody mt={-4}>

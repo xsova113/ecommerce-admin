@@ -90,9 +90,9 @@ model Product {
   categoryId String
   category   Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
   sizeId     String
-  size       Size        @relation(fields: [sizeId], references: [id])
+  size       Size        @relation(fields: [sizeId], references: [id], onDelete: Cascade)
   colorId    String
-  color      Color       @relation(fields: [colorId], references: [id])
+  color      Color       @relation(fields: [colorId], references: [id], onDelete: Cascade)
   images     Image[]
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
@@ -136,7 +136,7 @@ model OrderItem {
   orderId   String
   Order     Order   @relation(fields: [orderId], references: [id])
   productId String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@index([orderId])
   @@index([productId])
