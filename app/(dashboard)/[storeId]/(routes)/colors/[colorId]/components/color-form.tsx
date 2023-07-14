@@ -74,7 +74,7 @@ const ColorForm = ({ initialData }: ColorFormProps) => {
 
       toast({
         title: toastMessage,
-        position: "top",
+        position: "bottom-right",
         status: "success",
       });
     } catch (error) {
