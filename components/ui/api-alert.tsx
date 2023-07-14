@@ -51,6 +51,7 @@ const ApiAlert = ({ title, description, variant }: ApiAlertProps) => {
       bg={"white"}
       border={"1px"}
       borderColor={"gray.300"}
+      className="dark:bg-gray-900 dark:border-gray-600"
     >
       <HStack>
         <Icon as={Server} mr={2} />
@@ -82,11 +83,12 @@ const ApiAlert = ({ title, description, variant }: ApiAlertProps) => {
           fontFamily={"mono"}
           fontSize={"sm"}
           fontWeight={"semibold"}
+          className="text-gray-600 dark:bg-gray-600 dark:text-gray-200"
         >
           {description}
         </chakra.code>
         <Button variant={"outline"} size={"sm"} onClick={onCopy}>
-          <CopyIcon />
+          <CopyIcon className="dark:text-white" />
         </Button>
       </AlertDescription>
     </Alert>

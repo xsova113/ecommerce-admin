@@ -4,6 +4,7 @@ import AlertModal from "@/components/modals/alert-modal";
 import Heading from "@/components/ui/Heading";
 import ApiAlert from "@/components/ui/api-alert";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import useOrigin from "@/hooks/use-origin";
 import {
   Box,
@@ -116,7 +117,7 @@ const SettingsForm = ({ initialData }: SettingsFormProps) => {
         </Button>
       </Box>
 
-      <div className="divider" />
+      <Separator className="my-4" />
 
       <chakra.form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <Grid templateColumns={"repeat(3, 1fr)"} gap={8}>

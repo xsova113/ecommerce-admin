@@ -21,7 +21,7 @@ const MainNav = ({ className, ...props }: any) => {
           textUnderlineOffset={10}
           fontWeight={"medium"}
           textColor={route.active ? "black" : "gray.500"}
-          _dark={{ textColor: route.active ? "white" : "gray.500" }}
+          className={`${route.active ? "dark:text-gray-200" : "dark:text-gray-500"}`}
         >
           {route.label}
         </Link>

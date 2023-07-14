@@ -13,13 +13,13 @@ const NavSheet = ({ routes }: any) => {
     <div className="mt-2 md:hidden">
       <Sheet>
         <SheetTrigger>
-          <Menu />
+          <Menu className="dark:text-white" />
         </SheetTrigger>
         <SheetContent side={"left"} className="pt-20">
           {routes.map((item: any) => (
             <SheetTitle
               key={item.href}
-              className="hover:bg-gray-100 transition py-2"
+              className="hover:bg-gray-100 dark:hover:text-gray-600 transition py-2"
             >
               <SheetClose asChild>
                 <Link

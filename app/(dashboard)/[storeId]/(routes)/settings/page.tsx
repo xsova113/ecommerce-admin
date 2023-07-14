@@ -31,7 +31,7 @@ const Settingspage = ({ params }: SettingspageProps) => {
         setStore(data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [params.storeId, userId]);
 
   return (
     <Box>

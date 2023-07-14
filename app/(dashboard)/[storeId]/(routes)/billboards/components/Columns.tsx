@@ -23,7 +23,7 @@ export const columns: ColumnDef<BillboardColumn>[] = [
           src={row.original.imageUrl}
           alt="image"
           fill
-          className="object-cover rounded-sm hover:scale-[400%] hover:z-50 transition"
+          className="object-cover rounded-sm hover:z-50 transition"
         />
       </div>
     ),
