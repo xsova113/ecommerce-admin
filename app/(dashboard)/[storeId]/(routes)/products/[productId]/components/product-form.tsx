@@ -103,7 +103,7 @@ const ProductForm = ({
       });
     } catch (error: any) {
       toast({
-        title: error.message,
+        title: "Please fill out all the fields",
         position: "top",
         status: "error",
       });
