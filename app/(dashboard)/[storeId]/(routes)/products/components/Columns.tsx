@@ -11,7 +11,7 @@ export type ProductColumn = {
   isArchived: boolean;
   price: string;
   category: string;
-  size: string;
+  size: string | null;
   color: string;
   imageUrl: string;
   createdAt: string;
