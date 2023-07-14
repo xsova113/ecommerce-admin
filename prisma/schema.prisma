@@ -55,8 +55,8 @@ model Category {
 
 model Size {
   id        String    @id @default(uuid())
-  name      String
-  value     String
+  name      String?
+  value     String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   storeId   String
