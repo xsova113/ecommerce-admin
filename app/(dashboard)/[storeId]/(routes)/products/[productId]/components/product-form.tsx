@@ -98,12 +98,12 @@ const ProductForm = ({
       router.push(`/${params.storeId}/products`);
       toast({
         title: toastMessage,
-        position: "top",
+        position: "bottom-right",
         status: "success",
       });
-    } catch (error) {
+    } catch (error: any) {
       toast({
-        title: "Something went wrong",
+        title: error.message,
         position: "top",
         status: "error",
       });

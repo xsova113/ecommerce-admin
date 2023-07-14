@@ -90,7 +90,7 @@ model Product {
   categoryId String
   category   Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
   sizeId     String
-  size       Size?        @relation(fields: [sizeId], references: [id], onDelete: Cascade)
+  size       Size        @relation(fields: [sizeId], references: [id], onDelete: Cascade)
   colorId    String
   color      Color       @relation(fields: [colorId], references: [id], onDelete: Cascade)
   images     Image[]
