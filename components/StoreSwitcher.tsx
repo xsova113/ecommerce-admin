@@ -1,6 +1,7 @@
 "use client";
 
 import { useStoreModal } from "@/hooks/use-store-modal";
+import { cn } from "@/lib/utils";
 import { CheckIcon, UpDownIcon } from "@chakra-ui/icons";
 import {
   VStack,
@@ -56,7 +57,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
         );
 
   return (
-    <VStack className={className}>
+    <VStack className={cn("", className)}>
       <Menu>
         <MenuButton
           bg={"gray.200"}
@@ -68,16 +69,16 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
           bgColor={"white"}
           border={"1px solid"}
           borderColor={"gray.200"}
-          className={className}
+          className={cn("dark:border-gray-700", className)}
           _hover={{ bg: "gray.100" }}
         >
-          <HStack className={className}>
+          <HStack className={cn("", className)}>
             <Icon as={StoreIcon} boxSize={5} />
             <Text noOfLines={1}>{currentStore?.label}</Text>
             <UpDownIcon ml={"auto"} opacity={"50%"} boxSize={4} />
           </HStack>
         </MenuButton>
-        <MenuList title="Stores">
+        <MenuList title="Stores" className="dark:bg-black dark:border-gray-700">
           <Input
             ml={3}
             w={"90%"}
