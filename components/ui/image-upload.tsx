@@ -53,7 +53,7 @@ const ImageUpload = ({
               src={url}
               alt={"Image"}
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
           </div>
