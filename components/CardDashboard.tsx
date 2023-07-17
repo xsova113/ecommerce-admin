@@ -14,8 +14,8 @@ interface CardDashboardProps {
 
 const CardDashboard = ({ title, content, icon }: CardDashboardProps) => {
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0">
+    <Card className="border dark:border-slate-800 border-slate-200">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0" >
         <CardTitle className="text-sm md:text-lg lg:text:xl font-medium">
           {title}
         </CardTitle>

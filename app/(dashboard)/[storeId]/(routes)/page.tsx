@@ -42,7 +42,7 @@ const DashboardPage = async ({ params }: DashboardPageProps) => {
             icon={<PackageIcon className="max-md:h-4 max-md:w-4" />}
           />
         </div>
-        <Card className="col-span-4">
+        <Card className="col-span-4 dark:border-slate-800 border-slate-200">
           <CardHeader>
             <CardTitle>Overview</CardTitle>
           </CardHeader>
