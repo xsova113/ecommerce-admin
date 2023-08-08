@@ -13,6 +13,7 @@ export type ProductColumn = {
   category: string;
   size: string | null;
   color: string;
+  flavor?: string;
   imageUrl: string;
   createdAt: string;
 };
@@ -54,6 +55,10 @@ export const columns: ColumnDef<ProductColumn>[] = [
   {
     accessorKey: "size",
     header: "Size",
+  },
+  {
+    accessorKey: "flavor",
+    header: "Flavor",
   },
   {
     accessorKey: "color",
