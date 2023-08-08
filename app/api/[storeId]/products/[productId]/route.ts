@@ -20,6 +20,7 @@ export async function GET(
         category: true,
         color: true,
         size: true,
+        flavor: true,
       },
     });
 
@@ -43,6 +44,7 @@ export async function PATCH(
       colorId,
       sizeId,
       images,
+      flavorId,
       isFeatured,
       isArchived,
     } = await req.json();
@@ -75,6 +77,10 @@ export async function PATCH(
       return new NextResponse("Color ID is required", { status: 400 });
     }
 
+    if (!flavorId) {
+      return new NextResponse("Flavor ID is required", { status: 400 });
+    }
+
     if (!params.productId) {
       return new NextResponse("Product ID is required", { status: 400 });
     }
@@ -104,6 +110,7 @@ export async function PATCH(
         categoryId,
         colorId,
         sizeId,
+        flavorId,
         isFeatured,
         isArchived,
         images: {

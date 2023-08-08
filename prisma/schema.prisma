@@ -111,7 +111,7 @@ model Product {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   orderItems OrderItem[]
-  Flavor     Flavor?     @relation(fields: [flavorId], references: [id])
+  flavor     Flavor?     @relation(fields: [flavorId], references: [id])
   flavorId   String?
 
   @@index([storeId])

@@ -16,7 +16,7 @@ import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Box, Grid, GridItem, useDisclosure, useToast } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Category, Color, Image, Product, Size } from "@prisma/client";
+import { Category, Color, Flavor, Image, Product, Size } from "@prisma/client";
 import axios from "axios";
 import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
@@ -31,6 +31,7 @@ interface ProductFormProps {
   categories: Category[];
   colors: Color[];
   sizes: Size[];
+  flavors: Flavor[];
 }
 
 const formSchema = z.object({
@@ -40,6 +41,7 @@ const formSchema = z.object({
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
   sizeId: z.string().optional(),
+  flavorId: z.string().or(z.any()),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional(),
 });
@@ -51,6 +53,7 @@ const ProductForm = ({
   categories,
   sizes,
   colors,
+  flavors
 }: ProductFormProps) => {
   const { onOpen, isOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
@@ -77,6 +80,7 @@ const ProductForm = ({
           categoryId: "",
           colorId: "",
           sizeId: "",
+          flavorId: "",
           isFeatured: false,
           isArchived: false,
         },
@@ -253,6 +257,16 @@ const ProductForm = ({
                 items={colors}
                 text={"color"}
                 formName={"colorId"}
+              />
+            </GridItem>
+
+            <GridItem>
+              <SelectInput
+                form={form}
+                loading={loading}
+                items={flavors}
+                text={"flavor"}
+                formName={"flavorId"}
               />
             </GridItem>
 

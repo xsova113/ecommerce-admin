@@ -33,6 +33,12 @@ const ProductPage = async ({
     },
   });
 
+  const flavors = await prisma.flavor.findMany({
+    where: {
+      storeId: params.storeId,
+    },
+  });
+
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
@@ -41,6 +47,7 @@ const ProductPage = async ({
           categories={categories}
           colors={colors}
           sizes={sizes}
+          flavors={flavors}
         />
       </div>
     </div>
