@@ -15,6 +15,7 @@ export async function POST(
       colorId,
       sizeId,
       images,
+      flavorId,
       isFeatured,
       isArchived,
     } = await req.json();
@@ -41,6 +42,10 @@ export async function POST(
 
     if (!sizeId) {
       return new NextResponse("Size ID is required", { status: 400 });
+    }
+
+    if (!flavorId) {
+      return new NextResponse("Flavor ID is required", { status: 400 });
     }
 
     if (!colorId) {
@@ -70,6 +75,7 @@ export async function POST(
         isArchived,
         categoryId,
         colorId,
+        flavorId,
         sizeId,
         storeId: params.storeId,
         images: {
@@ -96,6 +102,7 @@ export async function GET(
     const categoryId = searchParams.get("categoryId") || undefined;
     const colorId = searchParams.get("colorId") || undefined;
     const sizeId = searchParams.get("sizeId") || undefined;
+    const flavorId = searchParams.get("flavorId") || undefined;
     const isFeatured = searchParams.get("isFeatured");
 
     if (!params.storeId) {
@@ -108,6 +115,7 @@ export async function GET(
         categoryId,
         colorId,
         sizeId,
+        flavorId,
         isFeatured: isFeatured ? true : undefined,
         isArchived: false,
       },
@@ -116,6 +124,7 @@ export async function GET(
         category: true,
         color: true,
         size: true,
+        flavor: true,
       },
       orderBy: {
         createdAt: "desc",
