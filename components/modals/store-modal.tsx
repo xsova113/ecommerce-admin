@@ -70,6 +70,7 @@ const StoreModal = () => {
             placeContent={"E-Commerce"}
             focusBorderColor="black"
             disabled={loading}
+            className="text-slate-900"
           />
           <FormErrorMessage>
             {errors.name && errors.name.message}
