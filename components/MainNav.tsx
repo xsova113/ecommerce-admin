@@ -8,7 +8,7 @@ const MainNav = ({ className, ...props }: any) => {
   return (
     <nav
       className={cn(
-        "flex items-center md:ml-4 lg:ml-6 md:gap-4 lg:gap-6 max-md:hidden",
+        "flex items-center md:ml-4 lg:ml-6 md:gap-4 lg:gap-6 max-lg:hidden",
         className
       )}
     >

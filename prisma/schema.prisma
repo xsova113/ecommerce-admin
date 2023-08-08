@@ -23,6 +23,7 @@ model Store {
   colors     Color[]     @relation("StoreToColor")
   products   Product[]   @relation("StoreToProduct")
   orders     Order[]     @relation("StoreToOrder")
+  flavors    Flavor[]    @relation("StoreToFlavor")
 }
 
 model Billboard {
@@ -79,6 +80,19 @@ model Color {
   @@index([storeId])
 }
 
+model Flavor {
+  id        String    @id @default(uuid())
+  name      String
+  value     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  storeId   String
+  store     Store     @relation("StoreToFlavor", fields: [storeId], references: [id])
+  products  Product[]
+
+  @@index([storeId])
+}
+
 model Product {
   id         String      @id @default(uuid())
   name       String
@@ -97,11 +111,14 @@ model Product {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   orderItems OrderItem[]
+  Flavor     Flavor?     @relation(fields: [flavorId], references: [id])
+  flavorId   String?
 
   @@index([storeId])
   @@index([categoryId])
   @@index([sizeId])
   @@index([colorId])
+  @@index([flavorId])
 }
 
 model Image {

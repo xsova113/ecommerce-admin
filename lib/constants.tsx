@@ -41,6 +41,14 @@ export function routeItems(params: any, pathname: string) {
       icon: <RatIcon />,
     },
     {
+      href: `/${params.storeId}/flavors`,
+      label: "Flavors",
+      active:
+        pathname === `/${params.storeId}/flavors` ||
+        pathname === `/${params.storeId}/flavors/${params.flavorId}`,
+      icon: <RatIcon />,
+    },
+    {
       href: `/${params.storeId}/products`,
       label: "Products",
       active:

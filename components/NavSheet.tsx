@@ -10,12 +10,12 @@ import Link from "next/link";
 
 const NavSheet = ({ routes }: any) => {
   return (
-    <div className="mt-2 md:hidden">
+    <div className="mt-2 lg:hidden">
       <Sheet>
         <SheetTrigger>
           <Menu className="dark:text-white" />
         </SheetTrigger>
-        <SheetContent side={"left"} className="pt-20">
+        <SheetContent side={"left"} className="pt-20 border-slate-800">
           {routes.map((item: any) => (
             <SheetTitle
               key={item.href}

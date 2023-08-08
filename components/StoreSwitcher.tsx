@@ -74,7 +74,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
         >
           <HStack className={cn("", className)}>
             <Icon as={StoreIcon} boxSize={5} />
-            <Text noOfLines={1}>{currentStore?.label}</Text>
+            <Text noOfLines={1} color={"white"}>{currentStore?.label}</Text>
             <UpDownIcon ml={"auto"} opacity={"50%"} boxSize={4} />
           </HStack>
         </MenuButton>
