@@ -94,25 +94,26 @@ model Flavor {
 }
 
 model Product {
-  id         String      @id @default(uuid())
-  name       String
-  price      Decimal
-  isFeatured Boolean     @default(false)
-  isArchived Boolean     @default(false)
-  storeId    String
-  store      Store       @relation("StoreToProduct", fields: [storeId], references: [id])
-  categoryId String
-  category   Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
-  sizeId     String
-  size       Size        @relation(fields: [sizeId], references: [id], onDelete: Cascade)
-  colorId    String
-  color      Color       @relation(fields: [colorId], references: [id], onDelete: Cascade)
-  images     Image[]
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  orderItems OrderItem[]
-  flavor     Flavor?     @relation(fields: [flavorId], references: [id])
-  flavorId   String?
+  id          String      @id @default(uuid())
+  name        String
+  price       Decimal
+  description String?
+  isFeatured  Boolean     @default(false)
+  isArchived  Boolean     @default(false)
+  storeId     String
+  store       Store       @relation("StoreToProduct", fields: [storeId], references: [id])
+  categoryId  String
+  category    Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
+  sizeId      String
+  size        Size        @relation(fields: [sizeId], references: [id], onDelete: Cascade)
+  colorId     String
+  color       Color       @relation(fields: [colorId], references: [id], onDelete: Cascade)
+  images      Image[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  orderItems  OrderItem[]
+  flavor      Flavor?     @relation(fields: [flavorId], references: [id])
+  flavorId    String?
 
   @@index([storeId])
   @@index([categoryId])

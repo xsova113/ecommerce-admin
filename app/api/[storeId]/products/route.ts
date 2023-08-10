@@ -15,6 +15,7 @@ export async function POST(
       colorId,
       sizeId,
       images,
+      description,
       flavorId,
       isFeatured,
       isArchived,
@@ -44,14 +45,6 @@ export async function POST(
       return new NextResponse("Size ID is required", { status: 400 });
     }
 
-    if (!flavorId) {
-      return new NextResponse("Flavor ID is required", { status: 400 });
-    }
-
-    if (!colorId) {
-      return new NextResponse("Color ID is required", { status: 400 });
-    }
-
     if (!params.storeId) {
       return new NextResponse("Store ID is required", { status: 400 });
     }
@@ -74,6 +67,7 @@ export async function POST(
         isFeatured,
         isArchived,
         categoryId,
+        description,
         colorId,
         flavorId,
         sizeId,

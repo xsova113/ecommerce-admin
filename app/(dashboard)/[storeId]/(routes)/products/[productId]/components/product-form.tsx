@@ -14,7 +14,14 @@ import {
 } from "@/components/ui/form";
 import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
-import { Box, Grid, GridItem, useDisclosure, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Textarea,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Category, Color, Flavor, Image, Product, Size } from "@prisma/client";
 import axios from "axios";
@@ -39,6 +46,7 @@ const formSchema = z.object({
   images: z.object({ url: z.string() }).array(),
   price: z.coerce.number().min(1),
   categoryId: z.string().min(1),
+  description: z.string().or(z.any()),
   colorId: z.string().min(1),
   sizeId: z.string().optional(),
   flavorId: z.string().or(z.any()),
@@ -53,7 +61,7 @@ const ProductForm = ({
   categories,
   sizes,
   colors,
-  flavors
+  flavors,
 }: ProductFormProps) => {
   const { onOpen, isOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
@@ -78,6 +86,7 @@ const ProductForm = ({
           price: 0,
           images: [],
           categoryId: "",
+          description: "",
           colorId: "",
           sizeId: "",
           flavorId: "",
@@ -231,6 +240,26 @@ const ProductForm = ({
             </GridItem>
 
             <GridItem>
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        borderColor={"gray.700"}
+                        disabled={loading}
+                        placeholder="Product description"
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </GridItem>
+
+            <GridItem>
               <SelectInput
                 form={form}
                 loading={loading}
@@ -275,7 +304,7 @@ const ProductForm = ({
                 control={form.control}
                 name="isFeatured"
                 render={({ field }) => (
-                  <FormItem className="flex items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormItem className="flex items-start space-x-3 border-gray-700 space-y-0 rounded-md border p-4">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
@@ -298,7 +327,7 @@ const ProductForm = ({
                 control={form.control}
                 name="isArchived"
                 render={({ field }) => (
-                  <FormItem className="flex items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormItem className="flex items-start border-gray-700 space-x-3 space-y-0 rounded-md border p-4">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
