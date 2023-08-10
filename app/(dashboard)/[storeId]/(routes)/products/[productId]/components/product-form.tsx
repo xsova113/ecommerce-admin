@@ -242,6 +242,7 @@ const ProductForm = ({
                     <FormLabel>Description</FormLabel>
                     <FormControl>
                       <Textarea
+                        rows={8}
                         disabled={loading}
                         placeholder="Product description"
                         {...field}
