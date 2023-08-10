@@ -247,6 +247,7 @@ const ProductForm = ({
                         {...field}
                       />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
