@@ -80,7 +80,7 @@ const ProductForm = ({
           price: 0,
           images: [],
           categoryId: "",
-          description: "",
+          description: "NULL",
           colorId: "",
           sizeId: "",
           flavorId: "",
