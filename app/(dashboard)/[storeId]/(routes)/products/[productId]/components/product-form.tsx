@@ -14,14 +14,7 @@ import {
 } from "@/components/ui/form";
 import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
-import {
-  Box,
-  Grid,
-  GridItem,
-  Textarea,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Grid, GridItem, useDisclosure, useToast } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Category, Color, Flavor, Image, Product, Size } from "@prisma/client";
 import axios from "axios";
@@ -32,6 +25,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import SelectInput from "./SelectInput";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ProductFormProps {
   initialData: (Product & { images: Image[] }) | null;
@@ -248,7 +242,6 @@ const ProductForm = ({
                     <FormLabel>Description</FormLabel>
                     <FormControl>
                       <Textarea
-                        borderColor={"gray.700"}
                         disabled={loading}
                         placeholder="Product description"
                         {...field}
