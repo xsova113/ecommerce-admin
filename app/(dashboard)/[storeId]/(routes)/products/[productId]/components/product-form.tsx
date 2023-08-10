@@ -40,7 +40,7 @@ const formSchema = z.object({
   images: z.object({ url: z.string() }).array(),
   price: z.coerce.number().min(1),
   categoryId: z.string().min(1),
-  description: z.string().or(z.any()),
+  description: z.any(),
   colorId: z.string().min(1),
   sizeId: z.string().optional(),
   flavorId: z.string().or(z.any()),
@@ -80,7 +80,7 @@ const ProductForm = ({
           price: 0,
           images: [],
           categoryId: "",
-          description: "NULL",
+          description: "",
           colorId: "",
           sizeId: "",
           flavorId: "",
@@ -245,7 +245,6 @@ const ProductForm = ({
                         disabled={loading}
                         placeholder="Product description"
                         {...field}
-                        maxLength={500}
                       />
                     </FormControl>
                   </FormItem>
